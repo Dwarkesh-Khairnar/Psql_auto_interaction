@@ -22,7 +22,7 @@ res.send('Cron jobs are set for updates.' ,alert)
 let isEvening = true; // Start with the Evening function
 
 // Set up cron jobs
-cron.schedule('* * * * *', async () => {
+cron.schedule('0 */12 * * *', async () => {
  if (isEvening) {
         await One(); // Update to 'Evenig'
     } else {
