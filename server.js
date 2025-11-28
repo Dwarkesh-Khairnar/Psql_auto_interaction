@@ -11,23 +11,21 @@ const PORT = process.env.BACK_PORT;
 
 connectDatabase();
 
-name();
-function name() {
-    setTimeout(One, 2000); // Delay in milliseconds
-    console.log('Start:');
 
-}
+    setTimeout(One, 2000); // Delay in milliseconds
+
+app.get('/', async (req, res) => {
+res.send('It start working')
+})
 
 async function One() {
     try {
         const result = await client.query(`UPDATE active SET active = 'Evenig' WHERE id=1;`);
-        // console.log('Evenig:', result);
+        console.log('Evenig:', result);
     } catch (error) {
         console.error('Database query error:', error); // Log detailed error
     }
     setTimeout(Two, 43200000); // Delay in milliseconds
-    // console.log('One');
-
 }
 
 async function Two() {
@@ -38,10 +36,8 @@ async function Two() {
         console.error('Database query error:', error); // Log detailed error
     }
     setTimeout(One, 43200000); // Delay in milliseconds
-    // console.log('Two');
-
 }
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`); // Delay in milliseconds
 });

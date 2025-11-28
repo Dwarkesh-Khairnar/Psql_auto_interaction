@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const config = {
-    user: process.env.postgresql_user,
-    password: process.env.postgresql_possword,
-    host: process.env.postgresql_host,
-    port: process.env.postgresql_port,
-    database: process.env.postgresql_database,
+    host: process.env.postgresql_host ,
+    user: process.env.postgresql_user ,
+    database: process.env.postgresql_database ,
+    password: process.env.postgresql_password ,
+    port: process.env.postgres_port ,
     ssl: {
         rejectUnauthorized: true,
         ca: `-----BEGIN CERTIFICATE-----
