@@ -12,30 +12,41 @@ const PORT = process.env.BACK_PORT;
 connectDatabase();
 
 
-    setTimeout(One, 2000); // Delay in milliseconds
 
+let alert;
 app.get('/', async (req, res) => {
-res.send('It start working')
+res.send('Cron jobs are set for updates.' ,alert)
 })
+
+// Set up cron jobs
+cron.schedule('0 */12 * * *', async () => {
+    await One();
+});
+
+cron.schedule('0 */12 * * *', async () => {
+    await Two();
+});
 
 async function One() {
     try {
         const result = await client.query(`UPDATE active SET active = 'Evenig' WHERE id=1;`);
         console.log('Evenig:', result);
+        alert='Update to Evenig'
     } catch (error) {
         console.error('Database query error:', error); // Log detailed error
     }
-    setTimeout(Two, 43200000); // Delay in milliseconds
+
 }
 
 async function Two() {
     try {
         const result = await client.query(`UPDATE active SET active = 'mornig' WHERE id=1;`);
-        console.log('Mornig:', result); // Log the results 
+        console.log('Mornig:', result); // Log the results
+        alert='Update to Mornig' 
     } catch (error) {
         console.error('Database query error:', error); // Log detailed error
     }
-    setTimeout(One, 43200000); // Delay in milliseconds
+
 }
 
 app.listen(PORT, () => {
