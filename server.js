@@ -22,7 +22,7 @@ res.send('Cron jobs are set for updates.' ,alert)
 let isEvening = true; // Start with the Evening function
 
 // Set up cron jobs
-cron.schedule('0 */12 * * *', async () => {
+cron.schedule('* * * * *', async () => {
  if (isEvening) {
         await One(); // Update to 'Evenig'
     } else {
@@ -33,7 +33,7 @@ cron.schedule('0 */12 * * *', async () => {
 
 async function One() {
     try {
-        const result = await client.query(`UPDATE active SET active = 'Evenig' WHERE id=1;`);
+        const result =await client.query('UPDATE active SET active=$1 WHERE id=$2', ['Evening', 1]);
         console.log('Evenig:', result);
         alert='Update to Evenig'+result
     } catch (error) {
@@ -44,7 +44,7 @@ async function One() {
 
 async function Two() {
     try {
-        const result = await client.query(`UPDATE active SET active = 'mornig' WHERE id=1;`);
+        const result = await client.query('UPDATE active SET active=$1 WHERE id=$2', ['mornig', 1]);
         console.log('Mornig:', result); // Log the results
         alert='Update to Mornig'+result
     } catch (error) {
