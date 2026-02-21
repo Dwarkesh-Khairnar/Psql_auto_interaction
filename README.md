@@ -2,8 +2,8 @@
 
 - This application help to run one code one time on day
 
-# way this application 
+# Way this application 
 
-# alternatives 
+- Cron-job is only work in https or ssl so this is option
 
-- Official Cron-jpb.org
+- alterntive of Official Cron-jpb.org
