@@ -7,3 +7,8 @@
 - Cron-job is only work in https or ssl so this is option
 
 - alterntive of Official Cron-jpb.org
+
+## Tech
+- No front end 
+- only backend work
+- vercel
