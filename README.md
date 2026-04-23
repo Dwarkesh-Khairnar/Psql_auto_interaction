@@ -12,3 +12,8 @@
 - No front end 
 - only backend work
 - vercel
+
+## Suggestion 
+- use official cron-job.org
+  - we not need to sepret deployed
+  - no need to spend money
